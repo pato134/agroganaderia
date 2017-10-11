@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'productos.apps.ProductosConfig',
     'clientes.apps.ClientesConfig',
+    'usuario.apps.UsuarioConfig',
+    # 'apps.Usuario',
+
+
 
 ]
 

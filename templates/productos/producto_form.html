@@ -2,16 +2,17 @@
 {% load staticfiles %}
 {% block title %}adoption{% endblock title %}
 {% block content %} 
-<h2>creacion de producto</h2>
  <section id="galeria" class="pages">
          <div class="jumbotron" data-stellar-background-ratio="0.5">
             <!-- Heading -->
             <div class="jumbo-heading" data-stellar-background-ratio="1.2">
-               <h1>Galeria</h1>
+               <h1>Producto</h1>
             </div>
          </div>
          <div class="container">
-         	<div> 
+            <div> 
+<section id="" class="">
+<h4 align="center"style="text-align:'center'">Crear Producto</h4>
          		<form enctype='multipart/form-data'method="post"> 
          		{% csrf_token %}
    					{{ form }}
