@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   {% load static %}
+      <meta charset="utf-8">
+      <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <![endif]-->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- Page title -->
+      <title>{% block title %}{% endblock %}</title>
+      <!--[if lt IE 9]>
+      <script src="js/respond.js"></script>
+      <![endif]-->
+      <!-- Bootstrap Core CSS -->
+      <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+      <!-- Icon fonts -->
+      <link href="{% static 'fonts/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+      <link href="{% static 'fonts/flaticons/flaticon.css' %}" rel="stylesheet" type="text/css">
+      <link href="{% static 'fonts/glyphicons/bootstrap-glyphicons.css' %}" rel="stylesheet" type="text/css">
+      <!-- Google fonts 
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,800" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
+      <!-- Style CSS -->
+      <link href="{% static "css/style.css" %}" rel="stylesheet">
+      <!-- Plugins CSS -->
+      <link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+      <!-- Color Style CSS -->
+      <link href="{% static 'styles/maincolors.css' %}" rel="stylesheet">
+      <!-- Favicons-->
+      <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+   </head>
+   <body id="page-top">
+      <!-- Preloader -->
+      <div id="preloader">
+         <div class="spinner">
+            <div class="bounce1"></div>
+         </div>
+      </div>
+      <!-- Preloader ends -->
+      <nav class="navbar navbar-custom navbar-fixed-top">
+         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+               <i class="fa fa-bars"></i>
+               </button>
+               <div class="navbar-brand navbar-brand-centered page-scroll">
+                  <a href="#page-top">
+                     <!-- logo  -->
+                     <img src="{% static 'img/proyecto.png' %}" class="img-responsive" alt="">
+                  </a>
+               </div>
+            </div>
+            <!--/navbar-header -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-brand-centered">
+               <ul class="nav navbar-nav">
+                  <li class="active"><a href="{% url 'home:index' %}">home</a></li>
+                  <li><a href="{% url 'quienessomos:listar_quienessomos' %}">Quienes somos </a></li>
+                  <li class="dropdown">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">servicios<b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="{% url 'productos:listar_productos' %}">Productos Veterinarios</a></li>
+                        <li><a href="{% url 'productos:listar_agricolas' %}">Productos Agricolas</a></li>
+                        <li><a href="{% url 'productos:listar_accesorios' %}">Accesorios</a></li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Galeria Principal<b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="{% url 'productos:productos_crear' %}">Crear Productos </a></li>
+                        <li><a href="{% url 'productos:listar_productos' %}">listar Productos </a></li>
+                     </ul>
+                  </li>
+                  <li class="dropdown">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tipo de Tramite<b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="{% url 'productos:gestionar_proformas' %}">Gestionar Proformas</a></li>
+                        <li><a href="{% url 'productos:gestionar_factura' %}">Facturación </a></li>
+                        <li><a href="{% url 'productos:get_cart' %}">Ver carrito </a></li>
+                     </ul>
+                  </li>
+                  <li><a href="{% url 'contactos:contactos_crear' %}">Contactos</a></li>
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+         </div>
+         <!-- /.container -->
+      </nav>
+      <!-- /navbar ends -->
+      {% block slide %}
+      {% endblock %}
+
+      {% block service %}
+      {% endblock %}
+
+      {% block about %}
+      {% endblock %}
+
+      {% block well %}
+      {% endblock %}
+
+      {% block reviews %}
+      {% endblock %}
+
+
+      {% block callout %}
+      {% endblock %}
+
+
+      {% block stats %}
+      {% endblock %}
+
+      {% block contact %}
+      {% endblock %}
+
+      {% block map %}
+      {% endblock %}
+
+      {% block content %}
+      {% endblock %}
+
+      <footer>
+         <!-- Contact info -->
+         <div class="container">
+            <div class="col-md-4 text-center">
+               <!-- Footer logo -->
+               <img src="{% static 'img/proyecto.png' %}" alt="" class="center-block img-responsive">
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4 text-center res-margin">
+               <ul class="list-unstyled">
+                  <li><i class="fa fa-phone"></i>0985075872- 2972443</li>
+                  <li><i class="fa fa-envelope"></i>Email: <a href="mailto:your@email.com">dr-rodrigo-62@hotmail.com</a></li>
+                  <li><i class="fa fa-map-marker"></i>Calle pichincha  frentre al coliseo Municipal de Zaruma </li>
+               </ul>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4 text-center res-margin">
+               <h5>Follow us</h5>
+               <!--Social icons -->
+               <div class="social-media">
+                  <a href="#" title=""><i class="fa fa-twitter"></i></a>
+                  <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                  <a href="#" title=""><i class="fa fa-google-plus"></i></a>
+                  <a href="#" title=""><i class="fa fa-instagram"></i></a>
+               </div>
+            </div>
+            <!-- /.col-md-4 -->
+         </div>
+         <!-- /.container -->
+         <!-- Credits-->
+         <div class="credits col-md-12 text-center">
+            Copyright © 2017 - Designed by <a href="http://www.ingridkuhn.com">Patricio Espinosa 
+            <!-- Go To Top Link -->
+            <div class="page-scroll hidden-sm hidden-xs">
+               <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+            </div>
+         </div>
+
+         <!-- /credits -->
+      </footer>
+      <!-- /footer ends -->
+      <!-- Core JavaScript Files -->
+      <script src="{% static 'js/jquery.min.js'%}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <!-- Main Js -->
+      <script src="{% static 'js/main.js' %}"></script>
+      <!-- Contact form -->
+      <script src="{% static 'js/contact.js' %}"></script>
+      <!--Other Plugins -->
+      <script src="{% static 'js/plugins.js' %}"></script>
+      <!-- Prefix free CSS -->
+      <script src="{% static 'js/prefixfree.js' %}"></script>
+      <!--Mail Chimp validator -->
+      <script src="{% static 'js/mc-validate.js' %}"></script>	  
+      <!-- Google maps-->
+      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+      <script src="{% static 'js/map.js' %}"></script>
+   </body>
+</html>

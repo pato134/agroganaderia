@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}gallery{% endblock title %}
+{% block slide %}
+ <section id="galeria" class="pages">
+         <div class="jumbotron" data-stellar-background-ratio="0.5">
+            <!-- Heading -->
+            <div class="jumbo-heading" data-stellar-background-ratio="1.2">
+               <h1>Galeria</h1>
+            </div>
+         </div>
+         <div class="container">
+            <div class="nav-gallery col-md-12">
+               <!-- Gallery Navigation -->
+               <div class="text-center col-md-12">
+                  <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
+                     <li class="active"><a href="#" data-toggle="tab" data-filter="*">Productos</a>
+                  </ul>
+               </div>
+            </div>
+         <!-- /nav-gallery -->
+            <!-- Gallery Starts-->
+            <div class="row">
+               <div class="col-md-12 margin1">
+                  <div id="lightbox">
+                     <!-- Image 1 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/bactrivet.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery1.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 2 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 other">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/amirvoss.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery2.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 3 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 other">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/bactrivett.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery3.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 4 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/pulgaout.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery4.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 5 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/celostop.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery5.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 6 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/sinviraxoral.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery6.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 7 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/apetovit.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery7.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 8 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 other">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/Bioequs.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery8.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 9 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 other">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/enrovet.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery9.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 10 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/toril.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery10.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 11 -->
+                     <div class="col-sm-6 col-md-6 col-lg-4 other">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/cuy.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery11.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image 12 -->
+                      <div class="col-sm-6 col-md-6 col-lg-4 other">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/vigantol.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/vigantol.png" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                        </div>
+                     </div>
+                     <!--image 12 ends -->
+                  </div>
+                  <!-- /lightbox-->
+               </div>
+               <!-- /col-md-12-->
+            </div>
+            <!-- /row -->
+         </div>
+         <!-- /container -->
+      </section>   
+{% endblock %}
+

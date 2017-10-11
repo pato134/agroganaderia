@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}servicessingle{% endblock title %}
+{% block slide %}
+ <section id="services" class="pages">
+         <div class="jumbotron" data-stellar-background-ratio="0.5">
+            <!-- Heading -->
+            <div class="jumbo-heading" data-stellar-background-ratio="1.2">
+               <h1>Service Single</h1>
+            </div>
+         </div>
+         <!-- container-->
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <h3>Service Name</h3>
+                  <p>Elit uasi quidem minus id omnis a nibh fusce mollis imperdie tlorem ipuset phas ellus ac sodales Lorem ipsum dolor Phas ellus 
+                     ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing.
+                  </p>
+                  <p>Eam et volumus atomorum scribentur. Mei te apeirian omittantur reformidans, duo in appetere interesset concludaturque. Est eruditi erroribus liberavisse in.
+                  </p>
+                  <!-- button -->
+                  <a class="btn" href="services.html">
+                  <i class="fa fa-angle-double-left"></i> All Services
+                  </a>
+               </div>
+               <!-- /col-md-6 -->
+               <div class="col-md-6 res-margin">
+                  <h4>Service Highlights</h4>
+                  <ul class="custom no-margin">
+                     <li>Aliquam erat volut pat. </li>
+                     <li>Ibu lum orci eget, viverra elit liquam erat volut pat phas ellus ac</li>
+                     <li>Aliquam erat volut pat phas ellu</li>
+                     <li>Eam et volumus atomorum scribentur te apeirian omittantu</li>
+                     <li>Duo in appetere interesset concludaturque</li>
+                     <li>Itlorem ipuset phas ellus ac sodales Lorem ipsum dolor Phas ell</li>
+                     <li>Aliquam erat volut pat phas ellu</li>
+                  </ul>
+                  <!-- /ul -->
+               </div>
+               <!-- /col-md-6 -->
+            </div>
+            <!-- /row -->
+         </div>
+         <!-- /container -->
+         <!-- owl slider -->
+         <div class="container-fluid margin1">
+            <div id="owl-featured" class="owl-carousel no-padding margin1">
+               <div class="col-md-12">
+                  <!-- image -->
+                  <a href="img/feature1.jpg" data-gal="prettyPhoto[gallery]" title="">
+                  <img src="{% static 'img/feature1.jpg' %}" class="img-rounded img-responsive" alt="">
+                  </a>
+               </div>
+               <!-- /col-md-12 -->
+               <div class="col-md-12">
+                  <a href="img/feature2.jpg" data-gal="prettyPhoto[gallery]" title="">
+                  <img src="{% static 'img/feature2.jpg' %}" class="img-rounded img-responsive" alt="">
+                  </a>
+               </div>
+               <!-- /col-md-12 -->
+               <div class="col-md-12">
+                  <!-- image -->
+                  <a href="img/feature3.jpg" data-gal="prettyPhoto[gallery]" title="">
+                  <img src="{% static 'img/feature3.jpg' %}" class="img-rounded img-responsive" alt="">
+                  </a>                  
+               </div>
+               <!-- /col-md-12 -->
+               <div class="col-md-12">
+                  <!-- image -->
+                  <a href="img/feature4.jpg" data-gal="prettyPhoto[gallery]" title="">
+                  <img src="{% static 'img/feature4.jpg' %}" class="img-rounded img-responsive" alt="">
+                  </a>
+               </div>
+               <!-- /col-md-12 -->
+               <div class="col-md-12">
+                  <!-- image -->
+                  <a href="img/feature5.jpg" data-gal="prettyPhoto[gallery]" title="">
+                  <img src="{% static 'img/feature5.jpg' %}" class="img-rounded img-responsive" alt="">
+                  </a>
+               </div>
+               <!-- /col-md-12 -->
+            </div>
+            <!-- /owl-carousel -->  
+         </div>
+         <!-- /container-->
+      </section>
+{% endblock %}
+
+
+    

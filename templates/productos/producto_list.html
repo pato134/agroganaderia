@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}adoption{% endblock title %}
+{% block content %} 
+<h2>creacion de producto</h2>
+ <section id="galeria" class="pages">
+         <div class="jumbotron" data-stellar-background-ratio="0.5">
+            <!-- Heading -->
+            <div class="jumbo-heading" data-stellar-background-ratio="1.2">
+               <h1>Galeria</h1>
+            </div>
+         </div>
+         <div class="container">
+            <div class="nav-gallery col-md-12">
+               <!-- Gallery Navigation -->
+               <div class="text-center col-md-12">
+                  <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
+                     <li class="active"><a href="#" data-toggle="tab" data-filter="*">Productos</a>
+                  </ul>
+               </div>
+            </div>
+         <!-- /nav-gallery -->
+            <!-- Gallery Starts-->
+            <div class="row">
+               <div class="col-md-12 margin1">
+                  <div id="lightbox">
+                     {% for producto in productos %}
+                     <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
+                        <div class="portfolio-item">
+                           <div class="gallery-thumb">
+                              <img class="img-responsive" src="{% static 'img/bactrivet.png' %}" alt="">
+                              <span class="overlay-mask"></span>
+                              <a href="img/gallery1.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                              <i class="fa fa-expand"></i></a>
+                           </div>
+                              <a href="{% url 'productos:add_to_cart' producto.id 1 %}?next={{ request.get_full_path }}" class="product-button"><i class="fa fa-shopping-cart"></i> Alquilar</a>
+                              <b>{{producto.nombre}}</b>
+                              <b>{{producto.fecha_vencimiento}}</b>
+                        </div>
+                     </div>
+                        
+                     {% endfor %}
+                     <!-- Image 1 -->
+                  </div>
+                  <!-- /lightbox-->
+               </div>
+               <!-- /col-md-12-->
+            </div>
+            <!-- /row -->
+         </div>
+         <!-- /container -->
+      </section>   
+{% endblock content %}

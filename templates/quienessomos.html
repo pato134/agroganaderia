@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}about{% endblock title %}
+{% block slide %}
+<section id="about" class="pages">
+         <div class="jumbotron" data-stellar-background-ratio="0.5">
+            <!-- Heading -->
+            <div class="jumbo-heading" data-stellar-background-ratio="1.2">
+               <h1>Sobre Nosotros</h1>
+            </div>
+         </div>
+         <!-- container -->
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-7 col-md-6">
+                  <h3>Servicios de Calidad</h3>
+                  <p>El principal objetivo de la Agroganaderia "LA FINCA" es brindar los mejores servicios a  todos sus clientes y usuarios como son la venta de productos veterinarios, productos agricolas, accesorios y medicamentos para sus mascotas.
+                  Tambien contamos con la mejor atención al cliente a cargo de su propietario por el Dr. Franco Rodrigo Espinosa Espinosa   
+                  </p>
+               </div>
+               <!-- /col-lg-7 -->
+               <!-- image -->
+               <div class="col-lg-5 col-md-6 res-margin">
+                  <img src="{% static 'img/servicios.png'%}" class=" center-block img-responsive" alt="">
+               </div>
+               <!-- /col-lg-5-->
+            </div>
+            <!-- /row -->
+           
+            <!-- /margin1 -->
+            <div class="row margin1">
+               <div class="col-lg-7 col-sm-12 res-margin">
+                  <h3 class="text-center">Como Empezamos</h3>
+                  <p>La Drogueria Veterinaria  “LA   FINCA” inició sus actividades en el año 2000 por lo cual ya cuenta con más de 10 años de presencia y trayectoria en el mercado.
+Desde el comienzo de nuestras actividades, nos especializamos en el suministro de producto para los diferentes clientes y establecimientos agropecuarios para que asi se hizo conocer la empresa                     
+Con el transcurso de los años hemos incorporado nuevas líneas de productos con el objetivo de proveer a nuestros clientes una solución integral a sus necesidades. 
+Nuestro objetivo principal es lograr una permanente mejora en nuestras actividades a fin de dar un servicio que asegure una entrega en tiempo y forma con su correspondiente asesoramiento..  Mediante las pautas mencionadas nos obligan a un estricto cumplimiento de nuestro manual de garantía de calidad y procedimientos a fin de lograr como meta final una satisfacción plena de nuestros clientes.
+Es importante señalar además, que nuestros servicios están fortalecidos por contar con un stock permanente de los principales productos de nuestra comercialización.
+
+                  </p>
+                  <p>
+                  </p>
+               </div>
+               <!-- /col-lg-7 -->   
+               <div class="col-lg-5 col-sm-12">
+                  <!-- Accordion -->
+                  <div class="panel-group" id="accordion">
+                     <!-- Question 1 -->
+                     <!-- Question 2 -->
+                     <div class="panel">
+                        <div class="panel-heading">
+                           <h5 class="panel-title">
+                              <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Misión</a>
+                           </h5>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                           <div class="panel-body">
+                              <p>Proporcionar servicios integrales de la más alta calidad para las mascotas a través de sistemas preventivos, emergentes y de medicina interna para así mejorar la salud de las personas incrementando la relación Humano-Animal.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Question 3 -->
+                     <div class="panel">
+                        <div class="panel-heading">
+                           <h5 class="panel-title">
+                              <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Visión</a>
+                           </h5>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                           <div class="panel-body">
+                              <p>Contar con un Hospital Veterinario de Especialidades único en la zona, con  sucursales que abarquen toda el área metropolitana, satisfaciendo la necesidad de servicios veterinarios para personas que buscan trato profesional y especializado.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- /.accordion -->
+               </div>
+               <!-- /col-lg-5 -->
+            </div>
+            <!-- /row -->
+         </div>
+         <!-- /container-->
+      </section>
+{% endblock %}

@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}adoption{% endblock title %}
+{% block service %}
+ <section id="adoption" class="pages">
+         <div class="jumbotron" data-stellar-background-ratio="0.5">
+            <!-- Heading -->
+            <div class="jumbo-heading" data-stellar-background-ratio="1.2">
+               <h1>Productos Veterinarios</h1>
+            </div>
+         </div>
+         <!-- container-->
+         <div class="container">
+         {{  productos }}
+            <!-- row -->
+            <div class="row">
+               <div class="col-lg-6 col-md-6">
+                  <!-- image -->
+                  <img src="{% static 'img/Iver.png'%}" alt="" class="center-block img-responsive ">
+               </div>
+               <!-- /col-lg-6 -->
+               <div class="col-lg-6 col-md-6 res-margin">
+                  <h3>veterinarios</h3>
+                  <p>Es la ciencia que se encarga de diagnosticar, prevenir y curar a los animales, la misma que se dedica a prevenir con las vacunaciones y a tratar algunos problemas principales, en esta rama de la veterinaria se realizan vacunaciones, desparacitaciones, tratamientos de enfermedades bacterianas y se previene con vacunaciones las enfermedades virales.
+                  </p>
+                  <p>Esta ciencia tambien ayuda en el campo al buen manejo y nutricion animal que es la base fundamental para la salud de los mismos.
+                  Entre algunos productos que utilizamos estan los siguientes 
+                  Estreptopendiben, Kronivit, Seismin, Pecutrin, Calfosal, Suprafos-f, Tramicin, Vigantol, Sulfavit, Locion Podal
+                  </p>
+                  <!-- /ul custom-->
+               </div>
+               <!-- /col-lg-6 -->
+            </div>
+            <!-- row -->
+            <div class="row margin1">
+               <!-- Navigation -->
+               <div class="text-center col-md-12 margin1">
+                  <ul class="nav nav-pills category text-center" role="tablist" id="adoptiontab">
+                     <li class="active"><a href="#" data-toggle="tab" data-filter="*">All</a>
+                  </ul>
+               </div>
+               <!-- Adoption gallery -->
+               <div class="col-md-12 margin1">
+                  <div id="lightbox">
+                     <!-- Image 1 -->
+                     <div class="col-lg-4 col-sm-6 col-md-6 dog">
+                        <div class="isotope-item">
+                           <div class="adoption-thumb">
+                              <img class="img-responsive img-circle" src="{% static 'img/adopt1.jpg' %}" alt=""> 
+                              <!-- header-->                     
+                              <div class="adopt-header">
+                                 <h4>ivermec</h4>
+                                 <p>Solución Inyectable.
+Antiparasitario endectocida.
+Ficha técnica: 
+Especies: 
+BovinosOvinosPorcinos
+Acción Farmacológica: 
+Antiparasitarios
+Composición: 
+Contiene:
+Ivermectina al 1%.
+Dosis: 
+Bovinos, Ovinos y Camélidos: 1 ml por cada 50 kg de peso. Porcinos: 1 ml por cada 33 kg de peso.</p>
+                                 <a class="btn" href="#">Adquirir</a>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/isotope-item -->
+                     </div>
+                     <!-- col-lg-4 -->
+                     <!-- Image 2 -->
+                     <div class="col-lg-4 col-sm-6 col-md-6 cat">
+                        <div class="isotope-item">
+                           <div class="adoption-thumb">
+                              <img class="img-responsive img-circle" src="{% static 'img/adopt2.jpg' %}" alt=""> 
+                              <!-- header-->                     
+                              <div class="adopt-header">
+                                 <h4>Gupsy
+                                 </h4>
+                                 <p>Ellus ac sodales Lorem ipsum dolor Phas ellus ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing elit uasi quidem minus id omnis a nib.</p>
+                                 <a class="btn" href="#">Adopt</a>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/isotope-item -->
+                     </div>
+                     <!-- col-lg-4 -->
+                     <!-- Image 3 -->
+                     <div class="col-lg-4 col-sm-6 col-md-6 cat">
+                        <div class="isotope-item">
+                           <div class="adoption-thumb">
+                              <img class="img-responsive img-circle" src="{% static 'img/adopt3.jpg' %}" alt=""> 
+                              <!-- header-->                     
+                              <div class="adopt-header">
+                                 <h4>Mary</h4>
+                                 <p>Ellus ac sodales Lorem ipsum dolor Phas ellus ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing elit uasi quidem minus id omnis a nib.</p>
+                                 <a class="btn" href="#">Adopt</a>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/isotope-item -->
+                     </div>
+                     <!-- col-lg-4 -->
+                     <!-- Image 4 -->
+                     <div class="col-lg-4 col-sm-6 col-md-6 dog">
+                        <div class="isotope-item">
+                           <div class="adoption-thumb">
+                              <img class="img-responsive img-circle" src="{% static 'img/adopt4.jpg' %}" alt=""> 
+                              <!-- header-->                     
+                              <div class="adopt-header">
+                                 <h4>Lucky</h4>
+                                 <p>Ellus ac sodales Lorem ipsum dolor Phas ellus ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing elit uasi quidem minus id omnis a nib.</p>
+                                 <a class="btn" href="#">Adopt</a>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/isotope-item -->
+                     </div>
+                     <!-- col-lg-3 -->
+                     <!-- Image 5 -->
+                     <div class="col-lg-4 col-sm-6 col-md-6 dog">
+                        <div class="isotope-item">
+                           <div class="adoption-thumb">
+                              <img class="img-responsive img-circle" src="{% static 'img/adopt5.jpg' %}" alt=""> 
+                              <!-- header-->                     
+                              <div class="adopt-header">
+                                 <h4>Susu</h4>
+                                 <p>Ellus ac sodales Lorem ipsum dolor Phas ellus ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing elit uasi quidem minus id omnis a nib.</p>
+                                 <a class="btn" href="#">Adopt</a>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/isotope-item -->
+                     </div>
+                     <!-- col-lg-3 -->
+                     <!-- Image 6 -->
+                     <div class="col-lg-4 col-sm-6 col-md-6 cat">
+                        <div class="isotope-item">
+                           <div class="adoption-thumb">
+                              <img class="img-responsive img-circle" src="{% static 'img/adopt6.jpg' %}" alt=""> 
+                              <!-- header-->                     
+                              <div class="adopt-header">
+                                 <h4>Ava</h4>
+                                 <p>Ellus ac sodales Lorem ipsum dolor Phas ellus ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing elit uasi quidem minus id omnis a nib.</p>
+                                 <a class="btn" href="#">Adopt</a>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/isotope-item -->
+                     </div>
+                     <!-- col-lg-4 -->
+                     <!-- Image 7 -->
+                     <div class="col-lg-4 col-sm-6 col-md-6 cat">
+                        <div class="isotope-item">
+                           <div class="adoption-thumb">
+                              <img class="img-responsive img-circle" src="{% static 'img/adopt7.jpg' %}" alt=""> 
+                              <!-- header-->                     
+                              <div class="adopt-header">
+                                 <h4>Lily</h4>
+                                 <p>Ellus ac sodales Lorem ipsum dolor Phas ellus ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing elit uasi quidem minus id omnis a nib.</p>
+                                 <a class="btn" href="#">Adopt</a>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/isotope-item -->
+                     </div>
+                     <!-- col-lg-4 -->
+                     <!-- Image 8 -->
+                     <div class="col-lg-4 col-sm-6 col-md-6 dog">
+                        <div class="isotope-item">
+                           <div class="adoption-thumb">
+                              <img class="img-responsive img-circle" src="{% static 'img/adopt8.jpg' %}" alt=""> 
+                              <!-- header-->                     
+                              <div class="adopt-header">
+                                 <h4>Douggie</h4>
+                                 <p>Ellus ac sodales Lorem ipsum dolor Phas ellus ac sodales felis tiam non metus. lorem ipsum dolor sit amet, consectetur adipisicing elit uasi quidem minus id omnis a nib.</p>
+                                 <a class="btn" href="#">Adopt</a>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/isotope-item -->
+                     </div>
+                     <!-- col-lg-4 -->
+                  </div>
+                  <!-- /lightbox-->
+               </div>
+               <!-- /col-lg-12 -->      
+            </div>
+            <!-- /row--> 
+         </div>
+         <!-- /container-->
+      </section>
+{% endblock %}
