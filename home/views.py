@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.contrib.auth import authenticate, login
 
 #def base(request):
 #	return render(request, "base.html", {})
@@ -46,6 +47,16 @@ def mostrar_team(request):
 def mostrar_testimonials(request):
 	return render(request, 'testimonials.html',{})
 
-def login(request):
+def ingresar(request):
+	if request.method == 'POST':
+		print ("AUTENTICANDO")
+		username  = request.POST.get('username', None)
+		password = request.POST.get('password', None)
+
+		user = authenticate(username = username, password = password)
+		if user is not None:
+			login(request, user)
+			return redirect('home:index')
+	
 	return render(request, 'login.html',{})
 

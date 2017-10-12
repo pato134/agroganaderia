@@ -154,7 +154,7 @@ button.list-group-item:hover,
 /*________  Yellow  ________  */
 
 .btn {
-    box-shadow: inset 9px 0px 0px 0px #F19F1F;
+    box-shadow: inset 9px 0px 0px 0px #776e60;
 }
 
 .navbar,
@@ -170,11 +170,11 @@ button.list-group-item:hover,
 .form-control,
 .price-table .featured,
 #map-canvas {
-    border-color: #F19F1F;
+    border-color: #776e60;
 }
 
 .date-category i {
-    color: #F19F1F;
+    color: #776e60;
 }
 /*________  Secondary gray  ________  */
 

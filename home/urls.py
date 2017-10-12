@@ -20,6 +20,6 @@ urlpatterns = [
     url(r'^team/$', views.mostrar_team),
     url(r'^testimonials/$', views.mostrar_testimonials),
     url(r'^elements/$', views.mostrar_elements),
-    url(r'^login/$',views.login, name='login') 
+    url(r'^login/$',views.ingresar, name='login') 
     #url(r'^registro/$', core_views.singup, name='registro'),
 ]

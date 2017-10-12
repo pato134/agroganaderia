@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load bootstrap3 %}
 {% block title %}adoption{% endblock title %}
 {% block content %} 
- <section id="galeria" class="pages">
+<section id="galeria" class="pages">
          <div class="jumbotron" data-stellar-background-ratio="0.5">
             <!-- Heading -->
             <div class="jumbo-heading" data-stellar-background-ratio="1.2">
@@ -11,11 +12,11 @@
          </div>
          <div class="container">
             <div> 
-<section id="" class="">
+<section id=""  class="col-md-6 col-md-offset-3">
 <h4 align="center"style="text-align:'center'">Crear Producto</h4>
          		<form enctype='multipart/form-data'method="post"> 
          		{% csrf_token %}
-   					{{ form }}
+               {% bootstrap_form form %}
     				<button type="submit">Guardar</button>
 				</form>
          	</div>

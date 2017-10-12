@@ -4,17 +4,20 @@ from django.contrib.auth.models import User
 from .models import Cliente
 
 class UsuarioCreationForm(UserCreationForm):
-    # def _init_(self, *args, **kargs):
-    #   super(ClienteCreationForm, self)._init_(*args, **kargs)
-    #   del self.fields['username']
-
-    class Meta:
+   class Meta:
         model = User
-        fields = UserCreationForm.Meta.fields
+        fields = ['first_name', 'last_name', 'email', 'username']
+        labels = {
+        	'first_name': 'Nombres',
+        	'last_name': 'Apellidos',
+
+        }
+        widgets = {
+            'password':  forms.PasswordInput(),
+        }
 
 class CLienteForm(forms.ModelForm):
-    class Meta:
-        model = Cliente
-        fields = '__all__'
 
-        
+	class Meta:
+		model= Cliente
+		fields = ('username','password','direccion','telefono','genero','edad')

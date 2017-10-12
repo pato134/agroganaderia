@@ -1,7 +1,18 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}adoption{% endblock title %}
 {% block content %} 
-<h2>registrarse</h2>
- {{  form }}
+<section id="" class="">
+         <!-- container -->
+    <div class="container">
+		<h4 align="center"style="text-align:'center'">Registrarse</h4>
+		{% block title %}{% endblock title %}
+		<form method= "POST" action="{% url 'clientes:registrarse' %}">
+		 {% csrf_token %}
+		 {{  form_cliente }}
+		 {{  form_user }}
+			<button type="submit">Guardar</button>
+		</form>
+    </div>
+</section>
 {% endblock content %}
+

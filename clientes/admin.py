@@ -5,8 +5,8 @@ from django.contrib.auth.admin import UserAdmin
 from .models import Cliente
 # Register your models here.
 class AdminCliente(admin.ModelAdmin):
-	list_display=['nombre','apellido','direccion','telefono','genero','edad']
-	search_fields=['id_cliente','nombre']
+	list_display=['direccion','telefono','genero','edad']
+	#search_fields=['id_cliente']
 	class Meta:
 		model=Cliente 
 
