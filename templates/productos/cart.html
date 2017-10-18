@@ -11,8 +11,10 @@
                 <th>Descripcion</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
+                <th>Stock</th>
                 <th>Total</th>
                 <th>eliminar</th>
+
             </thead>
             <tbody>
                 
@@ -26,6 +28,7 @@
                         <input id="cant{{item.product.id}}" type='text' name="quantity" value='{{item.quantity}}' class="qty" />
                         <div item_id="{{item.product.id}}" class="qtyplus" ><button class=" btn-primary">+</button>+</div>
                 </td>
+                <td>{{item.product.stock}}</td>
                 <td  class="total_item" id="total{{item.product.id}}">{{item.total_price}}</td>
                 <td><a href="{% url 'productos:remove_from_cart' item.product.id %}?next={{ request.get_full_path }}" class="remove_from_cart">X</a></td>
             </tr>

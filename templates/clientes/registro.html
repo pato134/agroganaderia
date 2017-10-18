@@ -6,7 +6,7 @@
     <div class="container">
 		<h4 align="center"style="text-align:'center'">Registrarse</h4>
 		{% block title %}{% endblock title %}
-		<form method= "POST" action="{% url 'clientes:registrarse' %}">
+		<form method= "POST" action="{% url 'clientes:registro' %}">
 		 {% csrf_token %}
 		 {{  form_cliente }}
 		 {{  form_user }}

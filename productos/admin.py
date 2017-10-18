@@ -4,7 +4,7 @@ from .models import Producto,TipoProducto
 
 # Register your models here.
 class AdminProducto(admin.ModelAdmin):
-	list_display=['id','image','nombre', 'tipo_producto','valor_producto','fecha_vencimiento']
+	list_display=['id','image','nombre', 'tipo_producto','valor_producto','fecha_vencimiento','stock']
 	search_fields=['nombre']
 	class Meta:
 		model=Producto

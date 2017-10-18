@@ -3,6 +3,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import login
+#from django.views.i18n import JavaScriptCatalog
 
 urlpatterns = [
 	  url(r'^', include('home.urls', namespace='home')),

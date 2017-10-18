@@ -9,8 +9,7 @@ from django.db import models
 class TipoProducto(models.Model):
 	image = models.FileField(null=True, blank=True)
 	nombre = models.CharField(max_length=200)
-	valor_tipo_producto = models.CharField(max_length=200)
-	fecha_vencimiento = models.CharField(max_length=200)
+
 
 	def __str__(self):
 		return self.nombre
@@ -20,7 +19,7 @@ class Producto(models.Model):
 	nombre= models.CharField(max_length=200)
 	tipo_producto = models.ForeignKey (TipoProducto)
 	valor_producto = models.CharField(max_length=200)
-	fecha_vencimiento = models.CharField(max_length=200)
-
+	fecha_vencimiento = models.DateField()
+	stock= models.IntegerField()
 	def __str__(self):
 		return self.nombre
