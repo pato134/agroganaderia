@@ -30,7 +30,7 @@ def cliente_nuevo(request):
             cliente.save()
             print(cliente)
             messages.success(request, _('Cliente creado correctamente!'))
-            return redirect('cliente:cliente_listar')
+            return redirect('clientes:cliente_listar')
     else:
         cliente_form = ClienteForm()
         user_form = UserForm()
@@ -47,12 +47,15 @@ def cliente_nuevo(request):
 
 
 def cliente_listar(request):
-	clientes=Cliente.objects.all()
-	context={
-			'clientes': clientes,
+    clientes=User.objects.all().select_related('cliente')
+    print(clientes)
+    context={
+    		'object_list': clientes,
 
-	}
-	return render(request,'clientes/cliente_list.html',context)
+
+
+    }
+    return render(request,'clientes/cliente_list.html',context)
 
 def cliente_eliminar(request, id_cliente):
         obj_cliente = Cliente.objects.get(id=id_cliente)
@@ -68,7 +71,7 @@ def cliente_editar(request, id_cliente):
           form = ClienteForm(request.POST, instance=cliente) 
           if form.is_valid():
             cliente= form.save()       
-            return redirect('cliente:cliente_listar')
+            return redirect('clientes:cliente_listar')
     else:
         form = ClienteForm(instance=cliente)
 
@@ -104,4 +107,4 @@ def authentication(request):
 
         return render(request, 'clientes/login.html', context)
                 
-    return render(request, 'cliente:login', {})
+    return render(request, 'clientes:login', {})

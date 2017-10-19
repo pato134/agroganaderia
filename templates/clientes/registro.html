@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load bootstrap3 %}
 {% block content %} 
 <section id="" class="">
          <!-- container -->
@@ -8,9 +9,15 @@
 		{% block title %}{% endblock title %}
 		<form method= "POST" action="{% url 'clientes:registro' %}">
 		 {% csrf_token %}
+		 {% bootstrap_form cliente_form %}
+		 {% bootstrap_form user_form %}
 		 {{  form_cliente }}
 		 {{  form_user }}
-			<button type="submit">Guardar</button>
+		 {% buttons %}
+		    <button type="submit" class="btn btn-primary">
+		    {% bootstrap_icon "star" %} Submit
+		    </button>
+		  	{% endbuttons %}
 		</form>
     </div>
 </section>
