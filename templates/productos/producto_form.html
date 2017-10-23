@@ -3,6 +3,17 @@
 {% load bootstrap3 %}
 {% block title %}adoption{% endblock title %}
 {% block content %} 
+<link href="{% static 'datepicker/external/jquery/jquery.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'datepicker//jquery-ui.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'datepicker/jquery-ui.min.css' %}" rel="stylesheet" type="text/css">
+<script src="{% static 'datepicker/jquery-ui.js' %}"></script>
+<script src="{% static 'datepicker/jquery-ui.min.js' %}"></script>
+<script type="text/javascript">
+   $.noConflict();
+jQuery(document).ready(function ($) {
+    $(".datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
+});
+</script>
 <section id="galeria" class="pages">
          <div class="jumbotron" data-stellar-background-ratio="0.5">
             <!-- Heading -->

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block content %} 
+<section id="" class="">
+         <!-- container -->
+    <div class="container">
+		<h4 align="center"style="text-align:'center'">Registrarse</h4>
+		{% block title %}{% endblock title %}
+		<form method= "POST" action="{% url 'proveedor:registro' %}">
+		 {% csrf_token %}
+		 {% bootstrap_form proveedor_form %}
+		 {% bootstrap_form user_form %}
+		 {{  form_proveedor }}
+		 {% buttons %}
+		    <button type="submit" class="btn btn-primary">
+		    {% bootstrap_icon "star" %} Submit
+		    </button>
+		  	{% endbuttons %}
+		</form>
+    </div>
+</section>
+{% endblock content %}
+

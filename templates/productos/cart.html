@@ -5,6 +5,7 @@
          <!-- container -->
     <div class="container">
     <div class="sixteen columns">
+    carrito={{cart.cart.id}}
         <table class="table table-striped table-bordered" >
             <thead>
                 <th>Producto</th>
@@ -62,6 +63,13 @@
         </table>
         <br>
         <!-- <a href="#" class="calculate-shipping"><i class="fa fa-arrow-circle-down"></i> Calculate Shipping</a> -->
+    </div> 
+    <div class="col-md-12 pull-right" >
+    <form method="POST" action="{% url 'facturas:factura_crear' %}">
+    {% csrf_token %}
+        <input type="hidden" name="cart_id" value="{{cart.cart.id}}">
+        <button type="submit" class="btn btn-primary">Realizar Compra</button>
+    </form>
     </div>
 
 </div>

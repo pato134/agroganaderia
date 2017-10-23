@@ -14,6 +14,8 @@ urlpatterns = [
     url(r'^quienessomos/', include('quienessomos.urls', namespace='quienessomos')),
     url(r'^clientes/', include('clientes.urls', namespace='clientes')),
     url(r'^usuario/', include('usuario.urls', namespace='usuario')),
+    url(r'^facturas/', include('facturas.urls', namespace='facturas')),
+    # url(r'^proveedor/', include('proveedor.urls', namespace='proveedor')),
    	
 
    # url(r'', include('.urls', namespace='Agroganaderia')),

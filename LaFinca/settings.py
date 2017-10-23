@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'productos.apps.ProductosConfig',
     'clientes.apps.ClientesConfig',
     'usuario.apps.UsuarioConfig',
-    #'proveedor.apps.ProveedorConfig',
+    'facturas.apps.FacturasConfig',
+    # 'proveedor.apps.ProveedorConfig',
     #'statici18n',
 
 

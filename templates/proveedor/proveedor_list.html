@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %} 
+{% load staticfiles %}
+<section id="" class="">
+         <!-- container -->
+    <div class="container">
+      <div class="sixteen columns">
+  		 <table class="table table-striped table-bordered" >
+              <thead>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Cedula</th>
+                  <th>Telefono</th>
+                  <th>Direccion</th>
+                  <th>Nombre_empresa</th>
+                  <th>direccion_empresa</th>
+                  <th>telefono_empresa</th>
+              </thead>
+              <body>
+              	{% for user in object_list %}
+     					<tr>
+     						<td> {{ user.first_name}}</td>
+                <td> {{ user.last_name}}</td>
+     						<td> {{ user.username}}</td>
+     						<td> {{ user.cliente.cedula}}</td>
+     						<td> {{ user.cliente.telefono}}</td>
+                <td> {{ user.cliente.direccion}}</td>
+     						<td> {{ user.cliente.nombre_empresa}}</td>
+                <td> {{ user.cliente.direccion_empresa}}</td>
+                <td> {{ user.cliente.telefono_empresa}}</td>
+     					</tr>
+  				{% endfor %}
+              </body>
+      </div>
+    </div>
+</section>
+{% endblock content %}
+
