@@ -27,6 +27,7 @@ def cliente_nuevo(request):
             cliente.telefono = cliente_form.cleaned_data['telefono']
             cliente.genero = cliente_form.cleaned_data['genero']
             cliente.edad = cliente_form.cleaned_data['edad']
+            cliente.lugar = cliente_form.cleaned_data['lugar']
             cliente.save()
             print(cliente)
             messages.success(request, _('Cliente creado correctamente!'))

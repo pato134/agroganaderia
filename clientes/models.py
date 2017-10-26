@@ -14,11 +14,12 @@ class Cliente(models.Model):
 	direccion =models.CharField(max_length= 200)
 	telefono=models.CharField(max_length=200)
 	genero = models.CharField(max_length=1)
+	lugar=models.CharField(max_length=200)
 	edad = models.CharField(max_length=200)
 	 
 
 	def __str__(self):
-		return " %s - %s - %s -%s"%(self.user, self.cedula, self.direccion ,self.telefono)
+		return " %s - %s -%s %s -%s"%(self.user, self.cedula, self.direccion ,self.telefono, self.lugar)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

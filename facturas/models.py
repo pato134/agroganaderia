@@ -5,19 +5,27 @@ from django.db import models
 
 # Create your models here.
 class Factura(models.Model):
-	numero=models.IntegerField
+	numero=models.IntegerField(default=1)
 	cliente = models.ForeignKey(User)
 	fecha= models.DateField()
 
 	def __str__(self):
-		return "%s-%s" %(self.numero, self.cliente)
+		return "%s - %s - %s" %(self.id, self.numero, self.cliente)
 
 
 class Detalle(models.Model):
 	factura = models.ForeignKey(Factura)
 	producto = models.ForeignKey(Producto)
 	cantidad=models.IntegerField()
-	precio=models.IntegerField()
+	precio=models.DecimalField(max_digits=5, decimal_places=2)
 
 	def __str__(self):
-		return "%s-%s" % (self.id, self.factura)
+		return "%s - %s" % (self.id, self.factura)
+
+class Pago(models.Model):
+	factura = models.ForeignKey(Factura)
+	comprobante=models.ImageField()
+	sugerencia=models.TextField()
+
+	def __str__(self):
+		return "%s - %s - %s" % (self.comprobante, self.sugerencia)

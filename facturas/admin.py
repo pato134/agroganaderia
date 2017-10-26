@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Factura,Detalle
+from .models import Factura,Detalle,Pago
 
 class AdminFacturas(admin.ModelAdmin):
 	list_display = ['id','numero','cliente','fecha']
@@ -14,3 +14,11 @@ class AdminDetalle(admin.ModelAdmin):
 	class Meta:
 	 	model= Detalle
 admin.site.register(Detalle,AdminDetalle)
+
+
+class AdminPago(admin.ModelAdmin):
+	list_display = ['id','factura','comprobante','sugerencia']
+	search_fields=['factura']
+	class Meta:
+	 	model= Pago
+admin.site.register(Pago,AdminPago)
