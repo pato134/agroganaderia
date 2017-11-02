@@ -27,11 +27,19 @@ SECRET_KEY = 'f01ba@1e@v5zy5)npz3=)cgv51e4(%t7lb$*%0%w+=f7l--ph9'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+EMAIL_USE_TLS =True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER ='espinosap430@gmail.com'
+EMAIL_HOST_PASSWORD ='emelec1992'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +54,10 @@ INSTALLED_APPS = [
     'usuario.apps.UsuarioConfig',
     'facturas.apps.FacturasConfig',
     'proveedor.apps.ProveedorConfig',
+    'proformas.apps.ProformasConfig',
+    'registration',
+    'crispy_forms',
+
     #'statici18n',
 
 
@@ -147,3 +159,39 @@ STATICFILES_DIRS = [
 ]
 LOGIN_REDIRECT_URL = '/index/'
 LOGIN_URL = '/login/'
+
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
+
+JET_THEMES = [
+    {
+        'theme': 'default', # theme folder name
+        'color': '#47bac1', # color of the theme's button in user menu
+        'title': 'Default' # theme title
+    },
+    {
+        'theme': 'green',
+        'color': '#44b78b',
+        'title': 'Green'
+    },
+    {
+        'theme': 'light-green',
+        'color': '#2faa60',
+        'title': 'Light Green'
+    },
+    {
+        'theme': 'light-violet',
+        'color': '#a464c4',
+        'title': 'Light Violet'
+    },
+    {
+        'theme': 'light-blue',
+        'color': '#5EADDE',
+        'title': 'Light Blue'
+    },
+    {
+        'theme': 'light-gray',
+        'color': '#222',
+        'title': 'Light Gray'
+    }
+]

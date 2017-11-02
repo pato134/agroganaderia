@@ -4,11 +4,7 @@
 {% block content %} 
 <h2>creacion de producto</h2>
  <section id="galeria" class="pages">
-         <div class="jumbotron" data-stellar-background-ratio="0.5">
-            <!-- Heading -->
-            <div class="jumbo-heading" data-stellar-background-ratio="1.2">
-               <h1>Productos</h1>
-            </div>
+         
          </div>
          <div class="container">
             <div class="nav-gallery col-md-12">
@@ -28,7 +24,13 @@
                      <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
                         <div class="portfolio-item">
                            <div class="gallery-thumb">
-                              <img class="img-responsive" src="{% static 'img/bactrivet.png' %}" alt="">
+                              {% if producto.image %}
+                              <img class="img-responsive" src="{{producto.image.url}}" alt="">
+                              {% else %}
+                              <img class="img-responsive" src="" alt="no image">
+
+                              {% endif %}
+
                               <span class="overlay-mask"></span>
                               <a href="img/gallery1.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
                               <i class="fa fa-expand"></i></a>
@@ -38,7 +40,6 @@
                               <b>{{producto.fecha_vencimiento}}</b>
                         </div>
                      </div>
-                        
                      {% endfor %}
                      <!-- Image 1 -->
                   </div>

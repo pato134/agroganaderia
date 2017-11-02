@@ -11,8 +11,9 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.db import transaction
 
-
+@transaction.atomic
 def cliente_nuevo(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST)
@@ -29,6 +30,8 @@ def cliente_nuevo(request):
             cliente.edad = cliente_form.cleaned_data['edad']
             cliente.lugar = cliente_form.cleaned_data['lugar']
             cliente.save()
+            user.set_password(user_form.cleaned_data['password'])
+            user.save()
             print(cliente)
             messages.success(request, _('Cliente creado correctamente!'))
             return redirect('clientes:cliente_listar')

@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Producto
 from .forms import ProductoForm
 from cart.cart import Cart
-from .models import Producto
 
 
 def producto_nuevo(request):

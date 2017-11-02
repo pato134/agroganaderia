@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+Factura
+{% endblock   %}
+{% block content %}
+{% load staticfiles %}
+<section id="" class="">
+			 <div class="text-center col-md-12">
+                  <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
+                     <li class="active"><a href="#" data-toggle="tab" data-filter="*"> Listado de Facturas</a>
+                  </ul>
+               </div>
+    <div class="container">
+    <div class="sixteen columns">
+<table class="table table-striped table-bordered" >
+	<thead>
+		<tr>
+			<th>numero</th> 
+			<th>cliente</th>
+			<th>iva</th>
+			<th>total</th>
+			<th>ver</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for factura in facturas %}
+		<tr>
+			<td>{{factura.numero}}</td>
+			<td>{{factura.cliente}}</td>
+			<td>{{factura.iva}}</td>
+			<td>{{factura.total}}</td>
+			<td>
+                <a href="{% url 'facturas:ver' factura.id  %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+
+            </td>
+		</tr>
+		{% endfor %} 
+	</tbody>
+</table>
+</section>
+
+
+{% endblock %}

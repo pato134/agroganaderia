@@ -37,12 +37,12 @@
       <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
    </head>
    <body id="page-top">
-      <!-- Preloader -->
-      <div id="preloader">
+      <!-- patita de yelena -->
+     <!--  <div id="preloader">
          <div class="spinner">
             <div class="bounce1"></div>
          </div>
-      </div>
+      </div> -->
       <!-- Preloader ends -->
       <nav class="navbar navbar-custom navbar-fixed-top">
          <div class="container">
@@ -85,11 +85,12 @@
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tipo de Tramite<b class="caret"></b></a>
                      <ul class="dropdown-menu">
                         <li><a href="{% url 'productos:gestionar_proformas' %}">Gestionar Proformas</a></li>
-                        <li><a href="{% url 'productos:gestionar_factura' %}">Facturación </a></li>
+                        <li><a href="{% url 'proveedor:proveedor_crear' %}">Proveedores </a></li>
                         <li><a href="{% url 'productos:get_cart' %}">Ver carrito </a></li>
                      </ul>
                   </li>
                   <li><a href="{% url 'contactos:contactos_crear' %}">Contactos</a></li>
+                  <!-- <li><a href="{% url 'clientes:registro' %}">Registrarse</a></li> -->
                </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -97,6 +98,10 @@
          <!-- /.container -->
       </nav>
       <!-- /navbar ends -->
+      {% block content %}
+
+      {% endblock %}
+
       {% block slide %}
       {% endblock %}
 
@@ -126,8 +131,7 @@
       {% block map %}
       {% endblock %}
 
-      {% block content %}
-      {% endblock %}
+   
 
       <footer>
          <!-- Contact info -->
@@ -149,10 +153,9 @@
                <h5>Follow us</h5>
                <!--Social icons -->
                <div class="social-media">
-                  <a href="#" title=""><i class="fa fa-twitter"></i></a>
-                  <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                  <a href="#" title=""><i class="fa fa-google-plus"></i></a>
-                  <a href="#" title=""><i class="fa fa-instagram"></i></a>
+                  <a href="https:www.facebook.com/rodrigo.espinosa.7921" title=""><i class="fa fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/espinosa5568/?hl=es" title=""><i class="fa fa-instagram"></i></a>
+                  <a href="https://www.youtube.com/channel/UC2s069qMF9Qyr0EkAN-ktWQ" title=""><i class="fa fa-youtube"></i></a>
                </div>
             </div>
             <!-- /.col-md-4 -->

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block estilo %}
+<section id="" class="">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+
+{% endblock estilo %}
+ {% block js %}
+<script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+{% endblock js %}
+
+
+
+
+{% block body %}
+     <div class="top-content">
+
+            <div class="inner-bg">
+                <div class="container">
+
+                    {% block contenido1 %}
+
+                    <section id="welcome-section">
+                        <div class="inner-container container">
+                            <div class="ravis-title-t-1" style="text-align: center;">
+                                <div class="title"><span >Candamo Hostería</span></div>
+                            </div>
+                            <div class="r-sec col-md-6">
+                                <img src="{% static 'img/hosteriagaleria/edificiopiscina.jpg' %}" alt="Colosseum Hotel">
+                            </div>
+                            <div class="l-sec col-md-6" style="padding-top: 220px;">
+
+                                <form method="post" action="." style="color: black;">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <!-- <label id="id_username">Usuario<span class="req">*</span></label>
+                                     <input name="username" type="text" required autocomplete="off" /> -->
+
+
+
+                                    <input class='btn btn-block btn-primary' type="submit" value="{% trans 'Iniciar sesion' %}" />
+                                    <input type="hidden" name="next" value="{{ next }}" />
+                                    <p>{% trans "Has olvidado tu contraseña" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Restablecer" %}</a>!</p>
+                                    <p>{% trans "No tienes cuenta" %}? <a href="{% url 'register' %}">{% trans "Registrarte" %}</a>!</p>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </section>
+
+                                {% endblock contenido1 %}
+                </div>
+            </div>
+           {% include "static/subfooter.html" %}
+     </div>
+</section>
+
+  {% endblock body %}
+
+
+
+

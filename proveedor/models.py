@@ -8,7 +8,8 @@ from django.db import models
 
 
 class Proveedor(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='proveedor')
+	nombres=models.CharField(max_length=200)
+	apellidos=models.CharField(max_length=200)
 	cedula=models.CharField(max_length=200)
 	telefono = models.CharField(max_length=10)
 	direccion = models.CharField(max_length=200)

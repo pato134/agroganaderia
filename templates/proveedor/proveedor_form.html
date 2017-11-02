@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block title %}Proveedor{% endblock title %}
+{% block content %} 
+<link href="{% static 'datepicker/external/jquery/jquery.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'datepicker//jquery-ui.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'datepicker/jquery-ui.min.css' %}" rel="stylesheet" type="text/css">
+<script src="{% static 'datepicker/jquery-ui.js' %}"></script>
+<script src="{% static 'datepicker/jquery-ui.min.js' %}"></script>
+<script type="text/javascript">
+   $.noConflict();
+jQuery(document).ready(function ($) {
+    $(".datepicker").datepicker({ dateFormat: 'dd/mm/yy' });
+});
+</script>
+<section id="galeria" class="pages">
+         
+         <div class="container">
+            <div> 
+<section id=""  class="col-md-6 col-md-offset-3">
+                  <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
+                     <li align="center"><a href="#" data-toggle="tab" data-filter="*">Proveedor</a>
+                  </ul>
+               <form enctype='multipart/form-data'method="post"> 
+               {% csrf_token %}
+               {% bootstrap_form form %}
+               <button type="submit">Guardar</button>
+            </form>
+            </div>
+            <div class="nav-gallery col-md-12">
+               <!-- Gallery Navigation -->
+               <div class="text-center col-md-12">
+                  <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
+                  </ul>
+               </div>
+            </div>
+         <!-- /nav-gallery -->
+            <!-- Gallery Starts-->
+            
+         <!-- /container -->
+      </section>  
+
+{% endblock content %}
