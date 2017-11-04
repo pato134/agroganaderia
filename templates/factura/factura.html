@@ -2,8 +2,21 @@
 {% block title %}Factura{% endblock %}
 {% block content %}
 {% load staticfiles %}
-      <link href="{% static 'css/print.css' %}" rel="stylesheet" type="text/css">
-      <script src="{% static 'js/jQuery.print.js'%}"></script>
+<style type="text/css">
+  
+@media print {
+   * 
+    {    
+     display: none !important;
+    }
+
+   #printable
+    {
+     display: block !important;
+    }
+}
+</style>
+<script type="text/JavaScript" src="{% static 'js/printThis.js'%}"></script>
 
  <h2></h2>
  <section id="galeria" class="pages">
@@ -102,7 +115,7 @@
                   </div>
                   <!--  div  de imprimir-->
                   <div class="col-md-8 " >
-                     <button type="button" class="btn btn-primary print-link no-print"  onclick="jQuery('#printable').print()">imprimir
+                     <button type="button" class="btn btn-primary print-link no-print" id="print_btn">imprimir
                      <button type="button" class="btn btn-primary " >Ver  mis Facturas
                   </div>
                   </div>
@@ -114,6 +127,25 @@
          </div>
          <!-- /container -->
       </section>  
+<script type="text/javascript">
+  $('#print_btn').click(function(){
+    $("#printable").print({
+      globalStyles: true,
+      mediaPrint: false,
+      stylesheet: null,
+      noPrintSelector: ".no-print",
+      iframe: true,
+      append: null,
+      prepend: null,
+      manuallyCopyFormValues: true,
+      deferred: $.Deferred(),
+      timeout: 750,
+      title: null,
+      doctype: '<!doctype html>'
+    });
+  });
+
+</script>
 
 <script type="text/javascript">
     calcular_total();

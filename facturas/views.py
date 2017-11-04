@@ -8,8 +8,13 @@ from django.db import transaction
 def factura_nuevo(request):
 	if  request.method == 'POST':
 		cart= Cart(request)
-		ultima_factura=Factura.objects.all().last()
-		numero=ultima_factura.numero+1
+		ultima_factura=Factura.objects.last()
+
+		# Si aun no hay facturas
+		if not ultima_factura:
+			numero = 1
+		else:
+			numero=ultima_factura.numero+1
 
 		#instancia factura
 		factura= Factura(
@@ -20,6 +25,9 @@ def factura_nuevo(request):
 		factura.save()
 		#instancia de detalle
 		for item in cart.cart.item_set.all():
+			producto = item.get_product()
+			producto.stock -= item.quantity
+			producto.save()
 			detalle= Detalle(
 				factura=factura,
 				producto=item.get_product(),
@@ -27,7 +35,7 @@ def factura_nuevo(request):
 				precio=item.total_price
 				)
 			detalle.save()
-			print detalle
+			print(detalle)
 
 		print(cart.summary())
 	context={
