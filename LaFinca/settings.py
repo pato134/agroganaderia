@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'proformas.apps.ProformasConfig',
     'registration',
     'crispy_forms',
+    
 
     #'statici18n',
 
