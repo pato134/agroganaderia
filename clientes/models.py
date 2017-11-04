@@ -9,17 +9,21 @@ from django.db import models
 
 
 class Cliente(models.Model):
+	GENEROS=(
+		("M","MASCULINO"), 
+		("F","FEMENINO"), 
+		)
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	cedula =models.CharField(max_length= 200, blank=True, null=True)
 	direccion =models.CharField(max_length= 200)
 	telefono=models.CharField(max_length=200)
-	genero = models.CharField(max_length=1)
+	genero = models.CharField(max_length=1,choices=GENEROS)
 	lugar=models.CharField(max_length=200)
-	edad = models.CharField(max_length=200)
+	edad = models.IntegerField(blank=True, null=True)
 	 
 
 	def __str__(self):
-		return " %s - %s -%s %s -%s"%(self.user, self.cedula, self.direccion ,self.telefono, self.lugar)
+		return " %s -%s %s -%s"%(self.cedula, self.direccion ,self.telefono, self.lugar)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

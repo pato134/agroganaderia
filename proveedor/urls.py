@@ -5,8 +5,8 @@ from . import views
 urlpatterns = [
 
 
-	url(r'^registro/$', views.proveedor_nuevo, name='registro'),
-	url(r'^listar/$', views.proveedor_listar, name='proveedor_listar'),
-	url(r'^eliminar/(?P<id_proveedor>\d+)$', views.proveedor_listar, name='proveedor_eliminar'),
-	url(r'^editar/(?P<id_proveedor>\d+)$', views.proveedor_editar, name='proveedor_editar'),
+   url(r'^proveedor_crear/$', views.proveedor_nuevo, name='proveedor_crear'),
+   url(r'^listar_proveedor/$', views.proveedor_nuevo, name='listar_proveedor'),
+
+	
 ]

@@ -2,39 +2,25 @@
 {% block title %}Factura{% endblock %}
 {% block content %}
 {% load staticfiles %}
+      <link href="{% static 'css/print.css' %}" rel="stylesheet" type="text/css">
+      <script src="{% static 'js/jQuery.print.js'%}"></script>
 <style type="text/css">
-  
-@media print {
-   * 
-    {    
-     display: none !important;
-    }
-
-   #printable
-    {
-     display: block !important;
-    }
+  @media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable, #printable * {
+    visibility: visible;
+  }
+  #printable{
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 }
 </style>
-<script type="text/JavaScript" src="{% static 'js/printThis.js'%}"></script>
-
- <h2></h2>
  <section id="galeria" class="pages">
-         <div class="jumbotron" data-stellar-background-ratio="0.5">
-            <!-- Heading -->
-            <div class="jumbo-heading" data-stellar-background-ratio="1.2">
-               <h1>Factura</h1>
-            </div>
-         </div>
-         <div class="container">
-            <div class="nav-gallery col-md-12">
-               <!-- Gallery Navigation -->
-               <div class="text-center col-md-12">
-                  <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
-                     <li class="active"><a href="#" data-toggle="tab" data-filter="*">Factura</a>
-                  </ul>
-               </div>
-            </div>
+         
          <!-- /nav-gallery -->
             <!-- Gallery Starts-->
             <div class="row">
@@ -42,13 +28,22 @@
                   <div id="lightbox">
                   
                    <!--div factura -->
-                  <div class="col-md-8" id="printable">
+                  <div class="col-md-8 " id="printable">
+               <!-- Gallery Navigation -->
+                   <div class="col-md-6 col-md-offset-5" >
+                     <div class="text-center col-md-12">
+                        <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
+                           <li class="active"><a href="#" data-toggle="tab" data-filter="*">Factura</a>
+                        </ul>
+                     </div>
+                   </div>
                      
                      <!--tabla cabecera -->
-                     <table class="table table-striped table-bordered" id="factura">
+
+                     <table class="table table-striped table-bordered  col-md-8 col-md-offset-2" id="factura">
                         <thead>
                            <th>
-                              <td colspan="2">imagen de la finca</td>
+                         
                               <td colspan="2"> <strong>numero:</strong> {{factura.numero}}</td>
                            </th>
                         </thead>
@@ -74,7 +69,7 @@
 
                      <!--tabla detalle -->
 
-                     <table  class="table table-striped table-bordered" id="detalle">
+                     <table  class="table table-striped table-bordered col-md-8 col-md-offset-2" id="detalle">
                      <thead>
                         <tr>
                            <th>cantidad</th>
@@ -98,7 +93,7 @@
                      </table>
 
                      <!--tabla totales -->
-                      <table class="table table-striped table-bordered">
+                      <table class="table table-striped table-bordered col-md-9 col-md-offset-2">
                            <tr>
                                <th>Subtotal del carrito</th>
                                <td id="subtotal"><strong></strong></td>
@@ -114,10 +109,9 @@
                        </table>
                   </div>
                   <!--  div  de imprimir-->
-                  <div class="col-md-8 " >
-                     <button type="button" class="btn btn-primary print-link no-print" id="print_btn">imprimir
-                     <button type="button" class="btn btn-primary " >Ver  mis Facturas
-                  </div>
+                  <div class="col-md-2 " >
+                    <button class="btn btn-primary pull-right table table-striped table-bordered  col-md-8 col-md-offset-2" style="margin-right: 5px;" onclick="window.print();"><i class="fa fa-download"></i>Imprimir </button>
+                     <a href="{% url 'facturas:factura_list' %}" type="button" class="btn btn-primary " >Ver  mis Facturas</a> 
                   </div>
                   <!-- /lightbox-->
                </div>
@@ -128,26 +122,12 @@
          <!-- /container -->
       </section>  
 <script type="text/javascript">
-  $('#print_btn').click(function(){
-    $("#printable").print({
-      globalStyles: true,
-      mediaPrint: false,
-      stylesheet: null,
-      noPrintSelector: ".no-print",
-      iframe: true,
-      append: null,
-      prepend: null,
-      manuallyCopyFormValues: true,
-      deferred: $.Deferred(),
-      timeout: 750,
-      title: null,
-      doctype: '<!doctype html>'
-    });
-  });
-
+   $("#btn_imprimir").click(function(){
+    $("#printable").print();
+   });
 </script>
-
 <script type="text/javascript">
+
     calcular_total();
     function calcular_total() {
 

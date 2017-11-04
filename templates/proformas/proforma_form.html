@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Proformas
+{% endblock title %}
+
+{% block contenido1 %}
+<div class="light-wrapper">
+    <div class="container inner">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="section-title"> Proformar </h2>
+          <form method="POST">
+          	
+          	{% csrf_token %}
+			{{form}}
+			<input  type="submit" value="submit">
+          </form>
+        </div>
+    </div>
+</div>    
+
+	
+
+{% endblock contenido1 %}

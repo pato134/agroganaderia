@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Factura,Detalle,Pago
 
 class AdminFacturas(admin.ModelAdmin):
-	list_display = ['id','numero','cliente','fecha']
+	list_display = ['id','numero','cliente','fecha','iva','total']
 	search_fields=['numero']
 	class Meta:
 	 	model= Factura
