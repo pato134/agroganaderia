@@ -6,7 +6,7 @@ from django.db import models
 
 # Create your models here.
 
-
+#En esta clase  se realizo el registro de los proveedores  con sus respectivos atributos las entidades 
 class Proveedor(models.Model):
 	nombres=models.CharField(max_length=200)
 	apellidos=models.CharField(max_length=200)

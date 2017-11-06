@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^proveedor/', include('proveedor.urls', namespace='proveedor')),
    	url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^proformas/', include('proformas.urls', namespace='proformas')), 
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls'))
 
    # url(r'', include('.urls', namespace='Agroganaderia')),
 

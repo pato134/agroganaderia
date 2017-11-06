@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load bootstrap3 %}
 {% block title %}contact{% endblock title %}
 {% block slide %}
 <link href="{% static 'css/lafinca.css' %}" rel="stylesheet" type="text/css">
@@ -24,14 +25,13 @@
             <h3>Información </h3>
             <ul class="list-inline">
                <li><i class="fa fa-envelope"></i><a href="mailto:youremailaddress">dr-rodrigo-62@hotmail.com</a></li>
-               <li><i class="fa fa-phone margin-icon"></i>Call Us 0985075872- 2972443</li>
-               <li><i class="fa fa-map-marker margin-icon"></i>Lorem Ipsum 505</li>
+               <li><i class="fa fa-phone margin-icon"></i>teléfono 0985075872- 2972443</li>
+               <li><i class="fa fa-map-marker margin-icon"></i>Calle Pichincha frente al Coliseo Municipal de Zaruma</li>
             </ul>
             <!-- address info -->
             <p class="text_about">Puede usar este canal de comunicación para:
 
                -Quejas
-               -Cómo utilizar TodoPerros.com (agregar un anuncio, etc.)
                -Publicitar en nuestra web
                -Sugerencias
                Por favor verifica que el email que ingresas esté bien escrito.
@@ -44,7 +44,8 @@
           <h3>Escribenos</h3>
           <!-- Form Starts -->
           <div class="field-row">
-             <form method="POST" action="">{% csrf_token %}
+             <form method="POST" action="">
+             {% csrf_token %}
                <div class="field-row">
                   <input type="text" name="nombre" placeholder="Nombre:" required>
                </div>
