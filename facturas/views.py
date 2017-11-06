@@ -34,6 +34,9 @@ def factura_nuevo(request):
 
 		#instancia de detalle
 		for item in cart.cart.item_set.all():
+			producto = item.get_product()
+			producto.stock -= item.quantity
+			producto.save()
 			detalle= Detalle(
 				factura=factura,
 				producto=item.get_product(),
@@ -41,7 +44,7 @@ def factura_nuevo(request):
 				precio=item.total_price
 				)
 			detalle.save()
-			print detalle
+			print(detalle)
 
 		print(cart.summary())
 	context={
