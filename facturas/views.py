@@ -26,8 +26,8 @@ def factura_nuevo(request):
 			numero=numero,
 			cliente=request.user,
 			fecha=date.today(),
-			iva=Decimal(iva),
-			total=Decimal(total),
+			iva=iva,
+			total=total,
  
 			)
 		factura.save()
@@ -35,12 +35,15 @@ def factura_nuevo(request):
 		#instancia de detalle
 		for item in cart.cart.item_set.all():
 			producto = item.get_product()
-			producto.stock -= item.quantity
+			quantity_id = 'quantity'+ str(producto.pk)
+			cantidad=request.POST.get(quantity_id)
+			print cantidad
+			producto.stock -= int(cantidad)
 			producto.save()
 			detalle= Detalle(
 				factura=factura,
 				producto=item.get_product(),
-				cantidad=item.quantity,
+				cantidad=cantidad,
 				precio=item.total_price
 				)
 			detalle.save()
