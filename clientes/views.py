@@ -20,6 +20,8 @@ def cliente_nuevo(request):
         cliente_form = ClienteForm(request.POST)   
         if cliente_form.is_valid() and user_form.is_valid():
             user = user_form.save()
+            user.set_password(user_form.cleaned_data['password'])
+            user.save()
             cliente = Cliente.objects.get(user = user)  
             # cliente_form.cleaned_data['user'] = user
             cliente.cedula = cliente_form.cleaned_data['cedula']
@@ -29,8 +31,6 @@ def cliente_nuevo(request):
             cliente.edad = cliente_form.cleaned_data['edad']
             cliente.lugar = cliente_form.cleaned_data['lugar']
             cliente.save()
-            user.set_password(user_form.cleaned_data['password'])
-            user.save()
             print(cliente)
             messages.success(request, 'Cliente creado correctamente!')
             return redirect('clientes:cliente_listar')

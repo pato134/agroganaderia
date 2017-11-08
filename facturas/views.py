@@ -37,7 +37,6 @@ def factura_nuevo(request):
 			producto = item.get_product()
 			quantity_id = 'quantity'+ str(producto.pk)
 			cantidad=request.POST.get(quantity_id)
-			print cantidad
 			producto.stock -= int(cantidad)
 			producto.save()
 			detalle= Detalle(
