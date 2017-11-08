@@ -5,6 +5,7 @@ from django.db import models
 
 # Create your models here.
 class Factura(models.Model):
+	"""En esta clase  se realizo el registro de la factura  con los datos de los clientes   con sus respectivos atributos""" 
 	numero=models.IntegerField(default=1)
 	cliente = models.ForeignKey(User)
 	fecha= models.DateField()
@@ -16,6 +17,7 @@ class Factura(models.Model):
 
 
 class Detalle(models.Model):
+	"""En esta clase  se realizo el registro de la factura  con los datos de los clientes   con sus respectivos atributos""" 
 	factura = models.ForeignKey(Factura)
 	producto = models.ForeignKey(Producto)
 	cantidad=models.IntegerField()
@@ -25,6 +27,7 @@ class Detalle(models.Model):
 		return "%s - %s" % (self.id, self.factura)
 
 class Pago(models.Model):
+	"""En esta clase  se realizo el registro de la factura  con los datos de los clientes   con sus respectivos atributos""" 
 	factura = models.ForeignKey(Factura)
 	comprobante=models.ImageField()
 	sugerencia=models.TextField()

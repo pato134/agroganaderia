@@ -155,23 +155,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
                        
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = (
-#     os.path.join(PROJECT_ROOT, 'static'),
-# )
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+]
 LOGIN_REDIRECT_URL = '/index/'
 LOGIN_URL = '/login/'
-
 
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
@@ -208,17 +198,3 @@ JET_THEMES = [
         'title': 'Light Gray'
     }
 ]
-
-
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
-DEBUG = True
-
-import mimetypes
-mimetypes.add_type("text/css", ".css", True)

@@ -7,8 +7,8 @@ from django.db import models
 
 # Create your models here.
 
-
 class Cliente(models.Model):
+	"""En esta clase  se realizo el registro de los clientes  con sus respectivos atributos"""
 	GENEROS=(
 		("M","MASCULINO"), 
 		("F","FEMENINO"), 

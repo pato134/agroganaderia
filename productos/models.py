@@ -4,14 +4,15 @@ from django.db import models
 
 # Create your models here.
 class TipoProducto(models.Model):
+	"""En esta clase  se realizo el registro de los tipos de producto  con sus respectivos atributos""" 
 	image = models.FileField(null=True, blank=True)
 	nombre = models.CharField(max_length=200)
 
 
 	def __str__(self):
 		return self.nombre
-
 class Producto(models.Model):
+	"""En esta clase  se realizo el registro de los tipos de producto  con sus respectivos atributos""" 
 	image = models.FileField(null=True, blank=True)
 	nombre= models.CharField(max_length=200)
 	tipo_producto = models.ForeignKey (TipoProducto)

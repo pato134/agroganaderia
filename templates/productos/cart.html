@@ -29,12 +29,14 @@
                 <td id="precio{{item.product.id}}">{{item.unit_price}}</td>
                 <td>
                         <div item_id="{{item.product.id}}" class="qtyminus"> <button class=" btn-primary">-</button>-</div>
-                        <input id="cant{{item.product.id}}" type='text' name="quantity" value='{{item.quantity}}' class="qty" />
+                        <input id="cant{{item.product.id}}" type='text' name="quantity{{item.product.id}}" value='{{item.quantity}}' class="qty" form="form_factura" />
                         <div item_id="{{item.product.id}}" class="qtyplus" ><button class=" btn-primary">+</button>+</div>
                 </td>
                 <td>{{item.product.stock}}</td>
                 <td  class="total_item" id="total{{item.product.id}}">{{item.total_price}}</td>
-                <td><a href="{% url 'productos:remove_from_cart' item.product.id %}?next={{ request.get_full_path }}" class="remove_from_cart">X</a></td>
+                <td>
+                <a href="{% url 'productos:remove_from_cart' item.product.id %}?next={{ request.get_full_path }}" class="remove_from_cart">X</a>
+                </td>
             </tr>
             {% endfor %}
             </tbody>
@@ -46,7 +48,7 @@
     <div class="eight columns cart-totals">
         <h3 class="headline">Total de Carrito</h3><span class="line"></span><div class="clearfix"></div>
 
-    <form method="POST" action="{% url 'facturas:factura_crear' %}">
+    <form method="POST" action="{% url 'facturas:factura_crear' %}" id="form_factura">
         <table class="table table-striped table-bordered">
 
             <tr>

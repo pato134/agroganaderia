@@ -108,6 +108,6 @@ def authentication(request):
         print('usuario no autenticado')
         
 
-        return render(request, 'clientes/login.html', context)
+        return render(request, 'clientes:login', context)
                 
     return render(request, 'clientes:login', {})
