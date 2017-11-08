@@ -21,7 +21,6 @@ def cliente_nuevo(request):
         if cliente_form.is_valid() and user_form.is_valid():
             user = user_form.save()
             cliente = Cliente.objects.get(user = user)  
-            print(cliente)
             # cliente_form.cleaned_data['user'] = user
             cliente.cedula = cliente_form.cleaned_data['cedula']
             cliente.direccion = cliente_form.cleaned_data['direccion']
@@ -33,7 +32,7 @@ def cliente_nuevo(request):
             user.set_password(user_form.cleaned_data['password'])
             user.save()
             print(cliente)
-            messages.success(request, _('Cliente creado correctamente!'))
+            messages.success(request, 'Cliente creado correctamente!')
             return redirect('clientes:cliente_listar')
     else:
         cliente_form = ClienteForm()
