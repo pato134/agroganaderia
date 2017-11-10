@@ -73,7 +73,7 @@ def add_to_cart(request, id_producto, quantity):
 	producto = Producto.objects.get(id=id_producto)
 	cart = Cart(request)
 	# Controlamos que haya stock dismponible
-	if producto.stock == 0:
+	if producto.stock <= 0:
 		messages.error(request, 'Ya no nos quedan productos '+producto.nombre)
 	else:
 		cart.add(producto, producto.valor_producto, quantity)
