@@ -7,6 +7,9 @@ Login-Registro
 {% block content %}
 <section id="" class="">
 <h4 align="center"style="text-align:'center'">Ingreso al sistema</h4>
+<div style="color: red;">
+	<p>{{ mensaje }}</p>
+</div>
 <form method="post">
 	{% csrf_token %}
 	<div class="row">

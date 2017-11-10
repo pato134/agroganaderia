@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from cart.cart import Cart
 from datetime import date
+from django.core.mail import send_mail
+
 from django.contrib import messages
 from django.db import transaction
 from decimal import *
@@ -52,9 +54,7 @@ def factura_nuevo(request):
 				precio=item.total_price
 				)
 			detalle.save()
-			print(detalle)
-
-		print(cart.summary())
+		email_factura(factura)
 	context={
 		"cart":cart,
 		"user":request.user,
@@ -81,3 +81,26 @@ def ver_factura(request,id_factura):
 	return render(request,'factura/factura.html',context) 
 
 	
+# Envio de mail
+def email_factura(factura):
+	print('ENVIO DE EMAIL')
+	print(factura.cliente.email)
+	subject = 'Notificacion Factura'
+	message = 'SU FACTURA SE HA REALIZADO CON EXITO\n'
+	message = '\nFactura Nro.: '+str(factura.numero)+'\n'
+	for detalle in factura.detalle_set.all():
+		producto = detalle.producto
+		message += '\n'+producto.nombre
+		message += '\t'+str(detalle.cantidad)
+		message += '\t'+str(detalle.precio)
+	message += '\nIva: '+str(factura.iva)
+	message += '\nTotal: '+str(factura.total)
+	
+
+	send_mail(
+	    subject,
+	    message,
+	    'espinosap430@gmail.com',
+	    ['espinosap430@gmail.com', factura.cliente.email],
+	    fail_silently=False,
+	)

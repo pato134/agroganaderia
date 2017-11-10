@@ -11,8 +11,8 @@ def contactos_nuevo(request):
 		form_mensaje = formulario.cleaned_data.get("mensaje")
 		form_nombre = formulario.cleaned_data.get("nombre")
 		asunto = 'Form de Contacto'
-		email_from = settings.EMAIL_HOST_USER
-		email_to = [email_from, "otroemail@gmail.com"]
+		email_from = 'espinosap430@gmail.com'
+		email_to = [email_from, form_email]
 		email_mensaje = "%s: %s enviado por %s" %(form_nombre, form_mensaje, form_email)
 		send_mail(asunto,
 			email_mensaje,

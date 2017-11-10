@@ -5,6 +5,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from cart.cart import Cart
+from django.core.mail import send_mail
+
 #from django.urls import reverse_lazy
 from .models import Proforma,DetalleProforma
 from .forms import ProformaForm
@@ -70,6 +72,7 @@ def proforma_nuevo(request):
 		"user":request.user,
 		"proforma":proforma,	
 	}
+	email_proforma(proforma)
 	return render(request,'proformas/proforma.html',context) 
 
 def proforma_list(request):
@@ -87,3 +90,28 @@ def ver_proforma(request,id_proforma):
 	}
 	return render(request,'proformas/proforma.html',context) 
 
+
+
+# Envio de mail
+def email_proforma(proforma):
+	print('ENVIO DE EMAIL')
+	print(proforma.cliente.email)
+	subject = 'Notificacion proforma'
+	message = 'SU PROFORMA SE HA REALIZADO CON EXITO\n'
+	message = '\nproforma Nro.: '+str(proforma.numero)+'\n'
+	for detalle in proforma.detalleproforma_set.all():
+		producto = detalle.producto
+		message += '\n'+producto.nombre
+		message += '\t'+str(detalle.cantidad)
+		message += '\t'+str(detalle.precio)
+	message += '\nIva: '+str(proforma.iva)
+	message += '\nTotal: '+str(proforma.total)
+	
+
+	send_mail(
+	    subject,
+	    message,
+	    'espinosap430@gmail.com',
+	    ['espinosap430@gmail.com', proforma.cliente.email],
+	    fail_silently=False,
+	)

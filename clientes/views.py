@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.utils.translation import ugettext as _
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
 # Create your views here.
 from .forms import ClienteForm, UserForm
 from .models import Cliente
@@ -106,12 +107,14 @@ def authentication(request):
         password = request.POST.get('password', None)
 
         user = authenticate(username = username, password = password)
+        
         if user is not None:
             login(request, user)
             return redirect('producto:producto_listar')
         else:
             messages.error(request, 'Credenciales invalidas')
-            return render(request, 'cliente/login.html', context)
+            context['mensaje'] = 'Credenciales invalidas'
+            return render(request, 'login.html', context)
 
     else:
         print('usuario no autenticado')
