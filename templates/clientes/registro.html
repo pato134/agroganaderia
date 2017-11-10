@@ -32,5 +32,11 @@
     </div>
 
 </section>
+<script src="{% static 'js/validar_cedula.js'%}"></script>
+<script type="text/javascript">
+	$('#id_cedula').change(function(e){
+		validar("id_cedula", e);
+	});
+</script>
 {% endblock content %}
 
