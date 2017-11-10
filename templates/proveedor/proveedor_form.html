@@ -15,30 +15,33 @@ jQuery(document).ready(function ($) {
 });
 </script>
 <section id="galeria" class="pages">
-         
-         <div class="container">
-            <div> 
-<section id=""  class="col-md-6 col-md-offset-3">
-                  <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
-                     <li align="center"><a href="#" data-toggle="tab" data-filter="*">Proveedor</a>
-                  </ul>
-               <form enctype='multipart/form-data'method="post"> 
-               {% csrf_token %}
-               {% bootstrap_form form %}
-               <button type="submit">Guardar</button>
-            </form>
-            </div>
-            <div class="nav-gallery col-md-12">
-               <!-- Gallery Navigation -->
-               <div class="text-center col-md-12">
-                  <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
-                  </ul>
-               </div>
-            </div>
-         <!-- /nav-gallery -->
-            <!-- Gallery Starts-->
+
+   <div class="container">
+      <div> 
+         <section id=""  class="col-md-6 col-md-offset-3">
+            <ul class="nav nav-pills category text-center" role="tablist" id="gallerytab">
+               <li align="center"><a href="#" data-toggle="tab" data-filter="*">Proveedor</a></li>
+            </ul>
+            {% if user.is_superuser %}
             
-         <!-- /container -->
-      </section>  
+               <form enctype='multipart/form-data'method="post"> 
+                  {% csrf_token %}
+                  {% bootstrap_form form %}
+                  <button type="submit">Guardar</button>
+               </form>
+            {% else %}
+               <div align="center">
+                  
+                  <p style="text-align:center;">No tiene permisos para acceder a la creacion de producto. <br>
+                  Ingrese como administrador.</p>   
+
+                  <a href="{% url 'home:login' %}" class="btn btn-default">Login</a>
+               </div>
+            {% endif %}
+
+            </div>
+         </section>  
+      </div>
+   </div>
 
 {% endblock content %}
