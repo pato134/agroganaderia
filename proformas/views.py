@@ -63,7 +63,6 @@ def proforma_nuevo(request):
 			precio=item.total_price
 			)
 		detalle.save()
-		print detalle
 
 	print(cart.summary())
 	context={

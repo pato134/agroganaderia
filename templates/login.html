@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}
-index
+Login-Registro
 {% endblock %}
 {% block navbar %}
 {% endblock %}
 {% block content %}
 <section id="" class="">
-<h4 align="center"style="text-align:'center'">ingreso al sistema</h4>
+<h4 align="center"style="text-align:'center'">Ingreso al sistema</h4>
 <form method="post">
 	{% csrf_token %}
 	<div class="row">
@@ -31,15 +31,15 @@ index
 	</div>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
-			<div class="form-group">
 				<a href="{% url 'auth_password_reset'%}">Olvide mi contraseña:</a>
+		</div>
+		<div class="col-md-6 col-md-offset-3">
 				<input class="btn btn-primary" type="submit" value="Ingresar">
-			</div>
-			
+				<a href="{% url 'clientes:registro'%}" class="btn btn-primary">Quiero registrarme</a>
 		</div>
 		
 	</div>
 </form>
-	</section>
+</section>
 
 {% endblock %}

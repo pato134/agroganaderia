@@ -15,6 +15,7 @@
 		<div class="col-md-6 col-md-offset-4" >
 		<div class="col-md-8 col-sm-6 col-xs-12">
 			{% block title %}{% endblock title %}
+
 			<form method= "POST" action="{% url 'clientes:registro' %}">
 			 {% csrf_token %}
 			 {% bootstrap_form cliente_form %}
@@ -22,7 +23,7 @@
 			 {{  form_cliente }}
 			 {{  form_user }}
 			 {% buttons %}
-			    <button type="submit" class="btn btn-primary">
+			    <button type="submit" class="btn btn-primary" id="btn_guardar">
 			    {% bootstrap_icon "star" %} Guardar
 			    </button>
 			  	{% endbuttons %}
@@ -32,5 +33,11 @@
     </div>
 
 </section>
+<script src="{% static 'js/validar_cedula.js'%}"></script>
+<script type="text/javascript">
+	$('#id_cedula').change(function(e){
+		validar("id_cedula", e);
+	});
+</script>
 {% endblock content %}
 

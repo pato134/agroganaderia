@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %} 
 {% load staticfiles %}
+{% load bootstrap3 %}
 <section id="" class="">
          <!-- container -->
     <div class="container">
@@ -8,7 +9,6 @@
     <div class="eight columns cart-totals">
     <h4 align="center"style="text-align:'center'">Carrito de Compras</h4>
     <span class="line"></span><div class="clearfix"></div>
-    carrito={{cart.cart.id}}
         <table class="table table-striped table-bordered" >
             <thead>
                 <th>Producto</th>
@@ -28,9 +28,9 @@
                 <td>{{item.product.}}</td>
                 <td id="precio{{item.product.id}}">{{item.unit_price}}</td>
                 <td>
-                        <div item_id="{{item.product.id}}" class="qtyminus"> <button class=" btn-primary">-</button>-</div>
+                        <div item_id="{{item.product.id}}" class="qtyminus"> <button class=" btn-primary">-</button></div>
                         <input id="cant{{item.product.id}}" type='text' name="quantity{{item.product.id}}" value='{{item.quantity}}' class="qty" form="form_factura" />
-                        <div item_id="{{item.product.id}}" class="qtyplus" ><button class=" btn-primary">+</button>+</div>
+                        <div item_id="{{item.product.id}}" class="qtyplus" ><button class=" btn-primary">+</button></div>
                 </td>
                 <td>{{item.product.stock}}</td>
                 <td  class="total_item" id="total{{item.product.id}}">{{item.total_price}}</td>
@@ -73,21 +73,29 @@
         <br>
         <!-- <a href="#" class="calculate-shipping"><i class="fa fa-arrow-circle-down"></i> Calculate Shipping</a> -->
     </div> 
-    <div class="col-md-12 pull-right" >
-    {% csrf_token %}
-        <input type="hidden" name="cart_id" value="{{cart.cart.id}}">
-        <button type="submit" class="btn btn-primary">Realizar Compra</button>
 
-    </form>
-    <form action="{% url 'proformas:proforma_crear' %}" method="post">
-    {% csrf_token %}
-        <input type="hidden" name="iva_hidden" id="iva_hidden" class="iva_hidden">
-        <input type="hidden" name="total_hidden" id="total_hidden"class="total_hidden">
-        <button type="submit" class="btn btn-primary">gestionar Proforma</button>
+    <!--BOTONES FACTURA Y PROFORMA-->
+    {# MOstrar botones si el carrito tiene items #}
+    {% if cart.cart.item_set.all  %}
+            
+        <div class="col-md-12 pull-right" >
+        {% csrf_token %}
+            <input type="hidden" name="cart_id" value="{{cart.cart.id}}">
+            <button type="submit" class="btn btn-primary">Realizar Compra</button>
 
-        
-    </form>
-    </div>
+        </form>
+        <form action="{% url 'proformas:proforma_crear' %}" method="post">
+        {% csrf_token %}
+            <input type="hidden" name="iva_hidden" id="iva_hidden" class="iva_hidden">
+            <input type="hidden" name="total_hidden" id="total_hidden"class="total_hidden">
+            <button type="submit" class="btn btn-primary">gestionar Proforma</button>
+
+            
+        </form>
+        </div>
+    {% else %}
+        <h4>No ha agregado items a su carrito de compras</h4>
+    {% endif %}
 
 </div>
 </section>

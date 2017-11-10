@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}adoption{% endblock title %}
+{% block title %}Productos{% endblock title %}
 {% block content %} 
-<h2>creacion de producto</h2>
  <section id="galeria" class="pages">
          
          </div>
@@ -35,9 +34,10 @@
                               <a href="img/gallery1.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
                               <i class="fa fa-expand"></i></a>
                            </div>
-                              <a href="{% url 'productos:add_to_cart' producto.id 1 %}?next={{ request.get_full_path }}" class="product-button"><i class="fa fa-shopping-cart"></i> Alquilar</a>
-                              <b>{{producto.nombre}}</b>
-                              <b>{{producto.fecha_vencimiento}}</b>
+                              <a href="{% url 'productos:add_to_cart' producto.id 1 %}?next={{ request.get_full_path }}" class="product-button"><i class="fa fa-shopping-cart"></i> Comprar</a>
+                              <b>{{producto.nombre}}</b><br>
+                              <b>Vence: </b>{{producto.fecha_vencimiento}}<br>
+                              <b>Stock: </b>{{producto.stock}}<br>
                         </div>
                      </div>
                      {% endfor %}

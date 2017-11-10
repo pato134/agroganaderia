@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 from .models import Producto
 from .forms import ProductoForm
 from cart.cart import Cart
@@ -68,11 +70,15 @@ def listar_accesorios(request):
 
 @login_required()
 def add_to_cart(request, id_producto, quantity):
-    producto = Producto.objects.get(id=id_producto)
-    cart = Cart(request)
-    cart.add(producto, producto.valor_producto, quantity)
-    response= HttpResponseRedirect(request.GET.get('next'))
-    return response
+	producto = Producto.objects.get(id=id_producto)
+	cart = Cart(request)
+	# Controlamos que haya stock dismponible
+	if producto.stock == 0:
+		messages.error(request, 'Ya no nos quedan productos '+producto.nombre)
+	else:
+		cart.add(producto, producto.valor_producto, quantity)
+	response= HttpResponseRedirect(request.GET.get('next'))
+	return response
 @login_required()
 def remove_from_cart(request, id_producto):
     producto = Producto.objects.get(id=id_producto)
