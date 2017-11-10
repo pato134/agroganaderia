@@ -16,7 +16,6 @@
 		<div class="col-md-8 col-sm-6 col-xs-12">
 			{% block title %}{% endblock title %}
 
-			{% bootstrap_messages %}
 			<form method= "POST" action="{% url 'clientes:registro' %}">
 			 {% csrf_token %}
 			 {% bootstrap_form cliente_form %}

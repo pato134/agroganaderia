@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from cart.cart import Cart
-from .models import Factura,Detalle
 from datetime import date
+from django.contrib import messages
 from django.db import transaction
 from decimal import *
+from .models import Factura,Detalle
 
 @transaction.atomic
 def factura_nuevo(request):
@@ -38,6 +39,11 @@ def factura_nuevo(request):
 			quantity_id = 'quantity'+ str(producto.pk)
 			cantidad=request.POST.get(quantity_id)
 			producto.stock -= int(cantidad)
+			if producto.stock < 0:
+				print('No quedan productos')
+				factura.delete()
+				messages.error(request, 'Lo sentimos, no nos quedan productos para '+producto.nombre)
+				return redirect('productos:get_cart')
 			producto.save()
 			detalle= Detalle(
 				factura=factura,

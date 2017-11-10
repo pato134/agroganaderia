@@ -102,6 +102,14 @@
          <!-- /.container -->
       </nav>
       <!-- /navbar ends -->
+      {% load bootstrap3 %}
+         <!-- container -->
+         <div class="" style="padding-top:6em">
+             <div class="sixteen columns">
+               {% bootstrap_messages %}
+            </div>
+         </div>
+
       {% block content %}
 
       {% endblock %}
