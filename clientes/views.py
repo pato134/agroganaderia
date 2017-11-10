@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.utils.translation import ugettext as _
+from django.shortcuts import get_object_or_404
 # Create your views here.
 from .forms import ClienteForm, UserForm
 from .models import Cliente
@@ -15,10 +16,26 @@ from django.db import transaction
 
 @transaction.atomic
 def cliente_nuevo(request):
+    cliente_form = ClienteForm()
+    user_form = UserForm()
+
+    context = {
+            'cliente_form': cliente_form,
+            'user_form': user_form,
+    }
     if request.method == 'POST':
         user_form = UserForm(request.POST)
         cliente_form = ClienteForm(request.POST)   
         if cliente_form.is_valid() and user_form.is_valid():
+            # Validamos si cliente ya existe
+            try:
+                cedula_existe = Cliente.objects.get(cedula = cliente_form.cleaned_data['cedula'])
+            except Cliente.DoesNotExist:
+                cedula_existe = None
+            if cedula_existe:
+                messages.error(request, 'Cliente con esta cedula ya existe')
+                return render(request, 'clientes/registro.html', context)
+
             user = user_form.save()
             user.set_password(user_form.cleaned_data['password'])
             user.save()
@@ -34,14 +51,6 @@ def cliente_nuevo(request):
             print(cliente)
             messages.success(request, 'Cliente creado correctamente!')
             return redirect('clientes:cliente_listar')
-    else:
-        cliente_form = ClienteForm()
-        user_form = UserForm()
-
-    context = {
-            'cliente_form': cliente_form,
-            'user_form': user_form,
-    }
 
     return render(request, 'clientes/registro.html', context)
 
